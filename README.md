@@ -6,14 +6,14 @@ The game allows you to play as either "X" or "O" against the AI, which makes opt
 
 ## Table of Contents
 
-- [Features](#features)
+- [Features](##features)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Gameplay](#gameplay)
 - [Code Explanation](#code-explanation)
 - [License](#license)
 
-## Features
+## features
 
 - **Graphical User Interface**: Built using Pygame to provide a visually appealing and interactive experience.
 - **AI Opponent**: The AI uses the minimax algorithm to play optimally, making it challenging to beat.
@@ -31,41 +31,45 @@ To run this game, you'll need Python and Pygame installed on your system.
 
    ```bash
    pip install pygame
+   
+3. Clone the Repository:
+   Clone this repository to your local machine using:
+   ```bash
+   git clone https://github.com/yourusername/tic-tac-toe-gui.git
+   cd tic-tac-toe-gui
 
-Clone the Repository:
-Clone this repository to your local machine using:
-git clone https://github.com/yourusername/tic-tac-toe-gui.git
+ 4. Download Fonts:
+   Download the OpenSans-Regular.ttf font from the repo and place it in the same directory as the script.
 
-Download Fonts:
-Download the OpenSans-Regular.ttf font from the repo and place it in the same directory as the script.
+ 5. Run the Game:
+   Execute the script with:
+      ```bash
+      python runner.py
 
-Run the Game:
-Execute the script with: python main.py
+## Usage
 
-Usage
-
-Game Controls
+1. Game Controls
 Choose Your Player: Click "Play as X" or "Play as O" to start the game as the respective player.
 Make a Move: Click on an empty cell to place your mark ("X" or "O") on the board.
 AI Move: The AI will automatically make its move after you.
 Play Again: After a game is over, click "Play Again" to start a new game.
 
-Gameplay
+2. Gameplay
 Starting the Game
 When the game starts, you will be prompted to select whether you want to play as "X" or "O".
 After selecting your player, the game board will be displayed.
 
-Playing the Game
+3. Playing the Game
 You take turns with the AI to place your mark on the board.
 The first player to get three of their marks in a row, column, or diagonal wins the game.
 If the board is filled and no player has won, the game is a draw.
 
-Ending the Game
+4. Ending the Game
 The game ends when a player wins or the board is full.
 A message will be displayed indicating the winner or if it's a tie.
 Click "Play Again" to start a new game.
 
-License
+## License
 This project is licensed under the Apache 2.0 License. Feel free to use, modify, and distribute the code.
 
 Enjoy playing Tic Tac Toe with an intelligent AI opponent!
