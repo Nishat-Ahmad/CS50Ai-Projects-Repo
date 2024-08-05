@@ -26,13 +26,15 @@ def player(board) -> str:
     countX = 0
     countO = 0
     
+    # Goes through the whole board and checks how many X and O exist
     for row in range(len(board)):
         for column in range(len(board[row])):
             if board[row][column] == X:
                 countX +=  1
             elif board[row][column] == O:
                 countO += 1
-            
+        
+    # Game always start with X   
     if countX > countO:
         return O
     else:
@@ -44,11 +46,11 @@ def actions(board) -> set:
     """
     allPossibleActions = set()
     
-    for row in range(len(board)):
-        for column in range(len(board[0])):
+    # Goes through the whole board and adds all possible outcomes as a tuple.
+    for row in range(3):
+        for column in range(3):
             if board[row][column] == EMPTY:
-                allPossibleActions.add((row, column))
-            
+                allPossibleActions.add((row, column))    
             
     return allPossibleActions
 
@@ -57,9 +59,11 @@ def result(board, action):
     Returns the board that results from making move (i, j) on the board.
     """
     
+    # Error checking
     if action not in actions(board):
         raise Exception("Not legal move")
 
+    # Seperating action
     row, column = action
     newboard = copy.deepcopy(board)
     
@@ -67,13 +71,15 @@ def result(board, action):
     
     return newboard
     
+# Function to check if someone has won by row.
 def row_check_winner(board, player):
-    for row in range(len(board)):
+    for row in range(3):
         if board[row][0] == player and board[row][1] == player and board[row][2] == player:
             return True
     
     return False
 
+# Function to check if someone has won by column.
 def column_check_winner(board, player):
     for column in range(3):
         if board[0][column] == player and board[1][column] == player and board[2][column] == player:
@@ -81,6 +87,7 @@ def column_check_winner(board, player):
     
     return False
 
+# Function to check if someone has won by diagonal.
 def diagonal_check_winer(board, player):
     if board[0][0] == player and board[1][1] == player and board[2][2] == player:
         return True
@@ -89,7 +96,8 @@ def diagonal_check_winer(board, player):
         return True
     
     return False
-    
+
+# Runs all the functions related to winning
 def winner(board):
     """
     Returns the winner of the game, if there is one.
@@ -129,6 +137,7 @@ def utility(board):
     else:
         return 0
 
+# Helper function for minimax
 def max_value(board):
     v = -math.inf
     
@@ -139,6 +148,7 @@ def max_value(board):
     
     return v
 
+# Helper function for minimax
 def min_value(board):
     v = math.inf
     
