@@ -34,8 +34,7 @@ To run this game, you'll need Python and Pygame installed on your system.
 3. Clone the Repository:
    Clone this repository to your local machine using:
    ```bash
-   git clone https://github.com/yourusername/tic-tac-toe-gui.git
-   cd tic-tac-toe-gui
+   git clone https://github.com/Nishat-Ahmad/Tic-Tac-Toe.git
 
  4. Download Fonts:
    Download the OpenSans-Regular.ttf font from the repo and place it in the same directory as the script.
