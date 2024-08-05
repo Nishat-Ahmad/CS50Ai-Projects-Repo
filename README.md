@@ -6,11 +6,10 @@ The game allows you to play as either "X" or "O" against the AI, which makes opt
 
 ## Table of Contents
 
-- [Features](##features)
+- [Features](#features)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Gameplay](#gameplay)
-- [Code Explanation](#code-explanation)
 - [License](#license)
 
 ## features
@@ -47,24 +46,23 @@ To run this game, you'll need Python and Pygame installed on your system.
       python runner.py
 
 ## Usage
-
 1. Game Controls
 Choose Your Player: Click "Play as X" or "Play as O" to start the game as the respective player.
 Make a Move: Click on an empty cell to place your mark ("X" or "O") on the board.
 AI Move: The AI will automatically make its move after you.
 Play Again: After a game is over, click "Play Again" to start a new game.
 
-2. Gameplay
-Starting the Game
+## Gameplay
+1. Starting the Game
 When the game starts, you will be prompted to select whether you want to play as "X" or "O".
 After selecting your player, the game board will be displayed.
 
-3. Playing the Game
+2. Playing the Game
 You take turns with the AI to place your mark on the board.
 The first player to get three of their marks in a row, column, or diagonal wins the game.
 If the board is filled and no player has won, the game is a draw.
 
-4. Ending the Game
+3. Ending the Game
 The game ends when a player wins or the board is full.
 A message will be displayed indicating the winner or if it's a tie.
 Click "Play Again" to start a new game.
