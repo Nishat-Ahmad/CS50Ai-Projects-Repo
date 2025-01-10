@@ -4,7 +4,6 @@ from crossword import *
 
 
 class CrosswordCreator():
-
     def __init__(self, crossword):
         """
         Create new CSP crossword generate.
