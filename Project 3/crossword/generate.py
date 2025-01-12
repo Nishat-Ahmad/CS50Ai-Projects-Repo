@@ -117,7 +117,8 @@ class CrosswordCreator():
         False if no revision was made.
         """
         overLap = self.crossword.overlaps.get((x, y))
-        if overLap is None: return False
+        if overLap is None: 
+            return False
         
         i, j = overLap
         removed = False
@@ -175,10 +176,12 @@ class CrosswordCreator():
         puzzle without conflicting characters); return False otherwise.
         """
         setWord = set(assignment.values())
-        if len(assignment) != setWord: return False
+        if len(assignment) != setWord: 
+            return False
         
         for var, word in assignment:
-            if var.length != len(word): return False
+            if var.length != len(word): 
+                return False
         
         for var1, word1 in assignment.items():
             for var2, word2 in assignment.items():
@@ -202,12 +205,15 @@ class CrosswordCreator():
         for value in self.domains[var]:
             ruledOut = 0
             for neighbor in self.crossword.neighbors(var):
-                if neighbor in assignment:  continue
+                if neighbor in assignment:  
+                    continue
                 overLap = self.crossword.overlaps.get((var, neighbor))
-                if overLap is None: continue
+                if overLap is None: 
+                    continue
                 i, j = overLap
                 for neigborVal in self.domains[neighbor]:
-                    if value[i] != neigborVal[j]: ruledOut += 1
+                    if value[i] != neigborVal[j]: 
+                        ruledOut += 1
                     
             ruledOutDict[value] = ruledOut
         
@@ -221,7 +227,11 @@ class CrosswordCreator():
         degree. If there is a tie, any of the tied variables are acceptable
         return values.
         """
-        unassignedVars = [var for var in self.crossword.variables if var not in assignment]
+        unassignedVars = []
+        for var in self.crossword.variables:
+            if var not in assignment:
+                unassignedVars.append(var)
+
         return min(unassignedVars, key=lambda var: (len(self.domains[var]), -len(self.crossword.neighbors(var))))
 
     def backtrack(self, assignment):
@@ -245,7 +255,6 @@ class CrosswordCreator():
             del assignment[var]
         
         return None
-
 
 def main():
 
