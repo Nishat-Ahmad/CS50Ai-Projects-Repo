@@ -46,9 +46,13 @@ def get_mask_token_index(mask_token_id, inputs):
     `None` if not present in the `inputs`.
     """
     # TODO: Implement this function
-    raise NotImplementedError
+    inputIds = inputs["input_ids"][0].numpy().tolist()
 
+    for index, tokenID in enumerate(inputIds):
+        if tokenID == mask_token_id:
+            return index
 
+    return None
 
 def get_color_for_attention_score(attention_score):
     """
@@ -56,9 +60,11 @@ def get_color_for_attention_score(attention_score):
     given `attention_score`. Each value should be in the range [0, 255].
     """
     # TODO: Implement this function
-    raise NotImplementedError
+    if not (0 <= attention_score <= 1): raise ValueError("Attention score must be between 0 and 1.")
+    score = attention_score.numpy() if isinstance(attention_score, tf.Tensor) else attention_score
 
-
+    grayVal = int(round(score * 255))
+    return (grayVal, grayVal, grayVal)
 
 def visualize_attentions(tokens, attentions):
     """
@@ -71,13 +77,14 @@ def visualize_attentions(tokens, attentions):
     (starting count from 1).
     """
     # TODO: Update this function to produce diagrams for all layers and heads.
-    generate_diagram(
-        1,
-        1,
-        tokens,
-        attentions[0][0][0]
-    )
-
+    for layerI, layerAttentions in enumerate(attentions):
+        for headI, headAttentions in enumerate(layerAttentions[0]):
+            generate_diagram(
+                layer_number=layerI + 1,
+                head_number=headI + 1,
+                tokens=tokens,
+                attention_weights=headAttentions,
+            )
 
 def generate_diagram(layer_number, head_number, tokens, attention_weights):
     """
